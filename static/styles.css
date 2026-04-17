@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background: radial-gradient(circle, #0a0f2c, #000);
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  padding: 15px;
+  max-width: 800px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #111, #1a1a2e);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.rank-icon {
+  width: 50px;
+}
+
+.up {
+  border: 2px solid green;
+}
+
+.down {
+  border: 2px solid red;
+}
