@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 import asyncio
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
+import uvicorn
 
 # =========================
 # 🔐 CONFIG
@@ -32,7 +33,7 @@ app.add_middleware(
 API_KEY = os.getenv("RIOT_API_KEY")
 
 if not API_KEY:
-    raise Exception("Falta RIOT_API_KEY en .env")
+    print("WARNING: RIOT_API_KEY no está configurada")
 
 HEADERS = {"X-Riot-Token": API_KEY}
 
@@ -191,3 +192,7 @@ async def catch_all(full_path: str):
         return None
     
     return FileResponse("static/index.html")
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
